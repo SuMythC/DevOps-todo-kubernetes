@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('GIT CHECKOUT') {
+            steps {
+                git branch: 'main', url: 'https://github.com/SuMythC/DevOps-todo-kubernetes.git'
+            }
+        }
+
+        stage("Docker Build AND PUSH") {
+            steps {
+                script {
+                    withDockerRegistry(credentialsId: 'username and password for docker', toolName: 'mydockydocker') {
+                        sh "docker build -t sumyth13/todo-app:latest ."
+                        sh "docker push sumyth13/todo-app:latest"
+                    }
+                }
+            }
+        }
+
+        stage("Deploy to Kubernetes") {
+            steps {
+                script {
+                    kubernetesDeploy(configs: 'deploy.yml', kubeconfigId: 'my-kube-config')
+                }
+            }
+        }
+    }
+}
