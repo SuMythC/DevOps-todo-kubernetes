@@ -2,11 +2,11 @@
 A simple todo app built with django
 
 ![todo App](https://raw.githubusercontent.com/shreys7/django-todo/develop/staticfiles/todoApp.png)
+
+ ## This is code originally belongs to https://github.com/shreys7/django-todo.git. I am using it for DevOps Project. Thank you.
+
+
 ### Setup
-To get this repository, run the following command inside your git enabled terminal
-```bash
-$ git clone https://github.com/shreys7/django-todo.git
-```
 You will need django to be installed in you computer to run this app. Head over to https://www.djangoproject.com/download/ for the download guide
 
 Once you have downloaded django, go to the cloned repo directory and run the following command
